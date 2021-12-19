@@ -59,6 +59,7 @@ if(is.null(opt$nd_folder_path)){
   opt$nd_folder_path <- list.files(path = opt$working_dir, pattern = ".nd$", full.names = TRUE, recursive = TRUE)
   if (length(opt$nd_folder_path)>1) stop("More than 1 .nd file detected. Please keep only 1 .nd file in the directory or specify it manually")
   if (length(opt$nd_folder_path)<1) stop("No .nd file detected. Please keep exactly 1 file in the directory. The name has to contain the word .nd")
+  opt$nd_folder_path <- dirname(opt$nd_folder_path)
   }
 
 if (is.null(opt$pdef_path)) {
