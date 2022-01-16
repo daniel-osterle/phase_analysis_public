@@ -1,40 +1,44 @@
 # Confocal Microscopy Images Analysis
 
-1. [Project Description](#project-description)
-2. [Requirements](#requirements)
+* [Project Description](#project-description)
+* [Requirements](#requirements)
+* [Detailed Script Description](#detailed-script-description)
+  * [Public Scripts Description](#public-scripts-description)
+  * [Private Scripts Description](#private-scripts-description)
+
+## Project Description
 
 
-[Detailed Script Description](#detailed-script-description)
-
-### Project Description
 
 
-### Requirements
+## Requirements
 
 
-### Detailed Script Description
+
+## Detailed Script Description
+
 
 To run the analysis several scripts are required which are described in detail below. 
 First, the scripts that are publicly available in this repository are described and then the private scripts. 
 Please contact me at daniel.oesterle@outlook.com to request the private scripts.
 
-#### Public Scripts Description
+### Public Scripts Description
 
-##### process_results.R
-
-
-##### phase_analysis_main.R
+#### process_results.R
 
 
-##### phase_plot_functions.R
+#### phase_analysis_main.R
 
 
-#### Private Scripts Description
+#### phase_plot_functions.R
 
-##### postprocess_result_txt.R
 
-##### Multiwell.R
+### Private Scripts Description
 
-##### general.R
+#### postprocess_result_txt.R
 
-##### MicroscopeToolBox.R
+#### Multiwell.R
+
+#### general.R
+
+#### MicroscopeToolBox.R
