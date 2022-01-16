@@ -1,19 +1,11 @@
 # Confocal Microscopy Images Analysis
 
 * [Project Description](#project-description)
-* [Requirements](#requirements)
 * [Detailed Script Description](#detailed-script-description)
   * [Public Scripts Description](#public-scripts-description)
   * [Private Scripts Description](#private-scripts-description)
 
 ## Project Description
-
-
-
-
-## Requirements
-
-
 
 ## Detailed Script Description
 
@@ -25,6 +17,18 @@ Please contact me at daniel.oesterle@outlook.com to request the private scripts.
 ### Public Scripts Description
 
 #### process_results.R
+Execute this script from the command line with `./process_results.R` or run `./process_results.R --help` to see all available options that can be supplied from the command line. Without options the script will parse the directory from which this script is executed for a set of files that are required to postprocess the raw image files.
+Most importantly, the script will look for the following files:
+* A file of ".nd" format that contains basic information about the set-up of the (automated) microscopy screen
+* A plate definition ("pdef") file of ".csv" format that contains information about the contents of each well on a 384-well plate
+* Several files of ".txt" format that contain the raw imaging data, including cell size, position and fluorescence intensities for the measured wavelengths of a specific screen
+
+Wile the files of ".nd" and ".txt" format result from the microscopy screen, the plate definition file has to be supplied by the user.
+
+Further, this script then uses these input files and supplies them to the postprocess_result_txt() function which does....
+
+Finally, everything in the global environment is saved in a file called "data_ready_to_analyze.RData"
+This file is sourced in "phase_analysis_main.R" for extracting the data of interest and plotting.
 
 
 #### phase_analysis_main.R
