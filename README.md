@@ -27,14 +27,16 @@ Wile the files of ".nd" and ".txt" format result from the microscopy screen, the
 
 Further, this script then uses these input files and supplies them to the postprocess_result_txt() function to perform the postprocessing using custom scripts from the Emmanuel Levy Lab. In brief, these scripts filter background fluorescence, outliers and cells outside of a specified size range from the raw data. A detailed description can be found in this [preprint](https://doi.org/10.1101/260695).
 
-Finally, everything in the global environment is saved in a file called "data_ready_to_analyze.RData"
-This file is sourced in "phase_analysis_main.R" for extracting the data of interest and plotting.
+Finally, the global environment is saved to "data_ready_to_analyze.RData". This file is sourced in "phase_analysis_main.R" for extracting the data of interest and plotting.
 
 
 #### phase_analysis_main.R
 
+This script loads "phase_analysis_main.R" that contains all required functions and postprocessed data. Next, a new data frame is created by extracting columns of interest which include median measured fluorescence intensity, cellular dimensions, amount and dimensions of observed foci as well as identifying labels.
+Finally, pdf files containing various plots are created by using functions from the "phase_plot_functions.R" module.
 
 #### phase_plot_functions.R
+
 
 
 ### Private Scripts Description
