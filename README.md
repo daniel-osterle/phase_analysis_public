@@ -21,11 +21,11 @@ Execute this script from the command line with `./process_results.R` or run `./p
 Most importantly, the script will look for the following files:
 * A file of ".nd" format that contains basic information about the set-up of the (automated) microscopy screen
 * A plate definition ("pdef") file of ".csv" format that contains information about the contents of each well on a 384-well plate
-* Several files of ".txt" format that contain the raw imaging data, including cell size, position and fluorescence intensities for the measured wavelengths of a specific screen
+* Several files of ".txt" format that are the result of prior cell identification and segmentation and contain the raw imaging data, including cell size, position and fluorescence intensities for the measured wavelengths of a specific screen as described in [Heidenreich et al.,(2020)](https://rdcu.be/cE9xO) PMID: 32661377
 
 Wile the files of ".nd" and ".txt" format result from the microscopy screen, the plate definition file has to be supplied by the user.
 
-Further, this script then uses these input files and supplies them to the postprocess_result_txt() function which does....
+Further, this script then uses these input files and supplies them to the postprocess_result_txt() function to perform the postprocessing using custom scripts from the Emmanuel Levy Lab. In brief, these scripts filter background fluorescence, outliers and cells outside of a specified size range from the raw data. A detailed description can be found in this [preprint](https://doi.org/10.1101/260695).
 
 Finally, everything in the global environment is saved in a file called "data_ready_to_analyze.RData"
 This file is sourced in "phase_analysis_main.R" for extracting the data of interest and plotting.
