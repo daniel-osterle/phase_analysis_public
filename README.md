@@ -25,7 +25,7 @@ Most importantly, the script will look for the following files:
 
 Wile the files of ".nd" and ".txt" format result from the microscopy screen, the plate definition file has to be supplied by the user.
 
-Further, this script then uses these input files and supplies them to the postprocess_result_txt() function to perform the postprocessing using custom scripts from the Emmanuel Levy Lab. In brief, these scripts filter background fluorescence, outliers and cells outside of a specified size range from the raw data. A detailed description can be found in this [preprint](https://doi.org/10.1101/260695).
+Further, this script then uses these input files and supplies them to the postprocess_result_txt() function to postprocess the raw data by mainly filtering unnecessary data with custom scripts from the [Emmanuel Levy Lab](https://www.weizmann.ac.il/CSB/ELevy/home) as described below and in this [preprint](https://doi.org/10.1101/260695).
 
 Finally, the global environment is saved to "data_ready_to_analyze.RData". This file is sourced in "phase_analysis_main.R" for extracting the data of interest and plotting.
 
@@ -46,8 +46,14 @@ In the uploaded version of "phase_analysis_main.R" the function plot.overlap.gfp
 
 #### postprocess_result_txt.R
 
+Function to perform the postprocessing using custom scripts from the [Emmanuel Levy Lab](https://www.weizmann.ac.il/CSB/ELevy/home). In brief, these scripts filter background fluorescence, outliers and cells outside of a specified size range from the raw data. A detailed description can be found in this [preprint](https://doi.org/10.1101/260695).
+
 #### Multiwell.R
 
+This module contains several function that are used to process multiwell plates such as 96 or 384 well plates and to ensure correct mapping of screening order to plate layout.
+
 #### general.R
+
+
 
 #### MicroscopeToolBox.R
