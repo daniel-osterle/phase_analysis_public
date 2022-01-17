@@ -54,6 +54,8 @@ This module contains several function that are used to process multiwell plates 
 
 #### general.R
 
-
+This module contains several auxiliary functions related to color scales, matrix manipulation and memory checks.
 
 #### MicroscopeToolBox.R
+
+
