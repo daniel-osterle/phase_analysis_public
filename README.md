@@ -37,6 +37,9 @@ Finally, pdf files containing various plots are created by using functions from 
 
 #### phase_plot_functions.R
 
+This module contains several functions to create plots with the ggplot2 R package. 
+
+In the uploaded version of "phase_analysis_main.R" the function plot.overlap.gfp() is used which creates two x-y-scatterplots overlaid on top of each other. The bottom scatter plot uses all cells in which maximum GFP fluorescence intensity is below 100 AUF (arbitrary fluorescence units), whereas the top scatter plot uses cells where maximum GFP fluorescence intensity is above 1000 AUF. Biologically, this corresponds to low and high expression of a protein (here: a kinase) tagged with GFP, respectively. Both plots illustrate the median fluorescence intensity of protein scaffolds that are tagged with either BFP (y-axis) or RFP (x-axis).
 
 
 ### Private Scripts Description
