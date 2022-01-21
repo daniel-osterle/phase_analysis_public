@@ -1,6 +1,12 @@
 #!/usr/bin/env Rscript
 library("optparse")
 
+
+# CHANGE THIS -------------------------------------------------------------
+path_to_repo = "/Users/d/git_for_cv/phase_analysis_public"
+
+# Prepare Option List -----------------------------------------------------
+
 option_list = list(
   make_option(c("-d","--working_dir"), type="character", default=NULL, 
               help="Absolute Path of Working Directory", metavar="character"),
@@ -22,37 +28,42 @@ option_list = list(
 opt_parser = OptionParser(option_list=option_list);
 opt = parse_args(opt_parser);
 
-print("This script will automatically look for all required input files in the current dir:")
-print(getwd())
-print("Use options to specify custom input files/paths.")
-print("To see all available options run: ./process_results.R --help")
-print("It is sufficient to specify individual custom options. The other options will be determined automatically from the current dir.")
+if(is.null(opt$working_dir)) {
+  opt$working_dir <- getwd()
+}
+
+
+cat(
+  "\n",
+  "#######", "\n\n",
+  "Looking for non-specified and required files in:", "\t\t", opt$working_dir, "\n",
+  "Use options for custom input files/paths. To see options run:",  "\t", "./process_results.R --help", "\n",
+  "Non-specified files/paths are determined automatically from:", "\t", opt$working_dir,  "\n\n",
+  "#######",
+  "\n\n",
+  sep = ""
+)
+
 
 cat("Continue? [y/n] ")
 ANSWER <- readLines("stdin",n=1)
 if (ANSWER != "y" & ANSWER != "Y") {stop("User interrupt")}
 
 
-#Check which OS ("Darwin" is MacOS)
-if (Sys.info()['sysname'] == "Darwin") {
-  os.foldername <- "/Volumes"
-  source("/Users/d/phase/Multiwell.R")
-  source("/Users/d/phase/general.R")
-  source("/Users/d/phase/MicroscopeToolBox.R")
-  source("/Users/d/phase_public_final/postprocess_result_txt.R")
-  
-}else if (Sys.info()['sysname'] == "Linux") {
-  os.foldername <- "/media"
-  source("/home/d/phase_private_final/uscope_tools/Multiwell.R")
-  source("/home/d/phase_private_final/uscope_tools/general.R")
-  source("/home/d/phase_private_final/uscope_tools/MicroscopeToolBox.R")
-  source("/home/d/phase_public_final/postprocess_result_txt.R")
-}
+# Source Scripts ----------------------------------------------------------
+#(Only after user confirms to continue)
+
+source(paste(path_to_repo,"private_scripts/Multiwell.R",sep = "/"))
+source(paste(path_to_repo,"private_scripts/general.R",sep = "/"))
+source(paste(path_to_repo,"private_scripts/MicroscopeToolBox.R",sep = "/"))
+source(paste(path_to_repo,"private_scripts/postprocess_result_txt.R",sep = "/"))
 
 
-if(is.null(opt$working_dir)) {
-  opt$working_dir <- getwd()
-}
+
+# Populate Option List ----------------------------------------------------
+# Check whether the user specified any elements of the option list via
+# command line options. If not, search for it with list.files()
+
 
 if(is.null(opt$nd_folder_path)){
   #search for .nd file. save to opt$nd_folder_path
@@ -86,15 +97,24 @@ if (is.null(opt$out_dir)) {
   }
 
 cat(
-  "The current working directory is: ", opt$working_dir, "\n",
-  "The .nd file path is: ",opt$nd_folder_path, "\n",
-  "The pdef file path is: ",opt$pdef_path, "\n",
-  "The path to the folder containing the result txt files is: ",opt$results_txt_path, "\n",
+  "\n",
+  "*********************************************", "\n\n",
+  "working directory..", "\t", opt$working_dir, "\n",
+  ".nd folder path....", "\t", opt$nd_folder_path, "\n",
+  "pdef file path.....", "\t", opt$pdef_path, "\n",
+  "result files path..", "\t", opt$results_txt_path, "\n\n",
+  "*********************************************",
+  "\n\n",
   sep = ""
 )
 
+
+
 pdef_head <- colnames(read.csv(opt$pdef_path,sep=",")) #get column names of pdef file
 CHANNELS_INPUT <- unlist(lapply(pdef_head,function(x) if(x=="GFP" | x=="RFP" | x=="BFP") x))
+
+
+# Create Experiment Info -------------------------------------------------------
 
 design = microscope.get.design(
   F = opt$nd_folder_path,
@@ -107,5 +127,12 @@ design = microscope.get.design(
   DIR.res = opt$out_dir
 )
 
+
+# Run Postprocessing ------------------------------------------------------
+
 dat.ready_to_analyze <- postprocess_result_txt(design.file = design, min.cell.size = 1000, max.cell.size = 2500, brightfield.cutoff = 0.8)
+
+
+# Save Processed Data -----------------------------------------------------
+
 save(list=ls(),file = paste0("data_ready_to_analyze.RData"))
