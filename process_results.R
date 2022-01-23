@@ -36,9 +36,8 @@ if(is.null(opt$working_dir)) {
 cat(
   "\n",
   "#######", "\n\n",
-  "Looking for non-specified and required files in:", "\t\t", opt$working_dir, "\n",
-  "Use options for custom input files/paths. To see options run:",  "\t", "./process_results.R --help", "\n",
-  "Non-specified files/paths are determined automatically from:", "\t", opt$working_dir,  "\n\n",
+  "Looking for required files in.........................", "\t", opt$working_dir, "\n",
+  "For custom input files use options. To see them run...",  "\t", "./process_results.R --help", "\n\n",
   "#######",
   "\n\n",
   sep = ""
@@ -96,6 +95,8 @@ if (is.null(opt$out_dir)) {
     opt$out_dir = OUT_PATH
   }
 
+
+
 cat(
   "\n",
   "*********************************************", "\n\n",
@@ -107,7 +108,6 @@ cat(
   "\n\n",
   sep = ""
 )
-
 
 
 pdef_head <- colnames(read.csv(opt$pdef_path,sep=",")) #get column names of pdef file
@@ -135,4 +135,4 @@ dat.ready_to_analyze <- postprocess_result_txt(design.file = design, min.cell.si
 
 # Save Processed Data -----------------------------------------------------
 
-save(list=ls(),file = paste0("data_ready_to_analyze.RData"))
+save(list=ls(),file = paste(opt$working_dir,"data_ready_to_analyze.RData",sep="/"))

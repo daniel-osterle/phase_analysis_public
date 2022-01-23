@@ -25,7 +25,8 @@ postprocess_result_txt <-
     data.1    = uscope.process.remove.first.pic(data.1)
     data.1    = uscope.process.remove.background(data.1, design.file)
     
-    n_cells_before = uscope.count.cells(data.1)
+    print("Before initial postprocessing:")
+    uscope.count.cells(data.1)
     
     data.1    = uscope.process.remove.small(data.1, MIN.size = min.cell.size, MAX.size =
                                               max.cell.size)
@@ -34,13 +35,6 @@ postprocess_result_txt <-
     
     data.12dan   = uscope.process.add.ncells(data = data.12)
     
-    n_cells_after = uscope.count.cells(data.12)
-    
-    print(
-      n_cells_before,
-      "cells were loaded and",
-      n_cells_after,
-      "cells remained after initial postprocessing."
-    )
-    
+    print("After initial postprocessing:")
+    uscope.count.cells(data.12)
   }
