@@ -1,8 +1,9 @@
 # Confocal Microscopy Images Analysis
 
 * [Project Description](#project-description)
-  * [Public Scripts Description](#public-scripts-description)
-  * [Private Scripts Description](#private-scripts-description)
+* [How To Run The Code](#how-to-run-the-code)
+* [Public Scripts Description](#public-scripts-description)
+* [Private Scripts Description](#private-scripts-description)
 
 ## Project Description
 
@@ -10,6 +11,8 @@ The code in this repository is used to analyze raw data resulting from confocal 
 
 This repository contains exemplary raw data from microscopy. This data is first processed using propietary scripts that have been developed in the [Emmanuel Levy Lab](https://www.weizmann.ac.il/CSB/ELevy/home). A short explanation of these scripts can be found in the section "Private Scripts Description".
 To only reproduce the data analysis and visualization these scripts are not necessary as processed exemplary files are contained in the "input_files" folder.
+
+## How To Run The Code
 
 ## Public Scripts Description
 
