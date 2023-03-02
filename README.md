@@ -1,7 +1,6 @@
 # Confocal Microscopy Images Analysis
 
 * [Project Description](#project-description)
-* [Detailed Script Description](#detailed-script-description)
   * [Public Scripts Description](#public-scripts-description)
   * [Private Scripts Description](#private-scripts-description)
 
@@ -42,9 +41,13 @@ In the uploaded version of "phase_analysis_main.R" the function plot.overlap.gfp
 
 ## Private Scripts Description
 
-### postprocess_result_txt.R
+### f.process.raw.data.R
 
-Function to perform the postprocessing using custom scripts from the [Emmanuel Levy Lab](https://www.weizmann.ac.il/CSB/ELevy/home). In brief, these scripts filter background fluorescence, outliers and cells outside of a specified size range from the raw data. A detailed description can be found in this [preprint](https://doi.org/10.1101/260695).
+This combines all raw data processing based on the proprietary scripts into one function. It has four input variables: *design.file* which is a custom file created in the public module process_results.R and contains general information about the microscopy and plate set up; *min.cell.size* which is the minimum size of circular regions of interest that is to be considered as a cell, *max.cell.size* which is the equivalent to *min.cell.size* for maximum size; *brightfield.cutoff* which is a numeric constant indicating the upper threshold of brightfield intensity for cells that are kept as all cells above the threshold have a brightfield intensity that deviates too much from the average and are removed.
+
+### MicroscopeToolBox.R
+
+Contains various functions to perform the processing of raw data including filtering background fluorescence, outliers and cells outside of a specified size range. A more detailed description can be found in this [preprint](https://doi.org/10.1101/260695).
 
 ### Multiwell.R
 
@@ -53,7 +56,3 @@ This module contains several function that are used to process multiwell plates 
 ### general.R
 
 This module contains several auxiliary functions related to color scales, matrix manipulation and memory checks.
-
-### MicroscopeToolBox.R
-
-
