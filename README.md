@@ -9,7 +9,7 @@
 
 The code in this repository is used to analyze raw data resulting from confocal microscopy images of *S. Cerevisiae* cells. In very general terms, these cells were prepared to contain two different building blocks that can assemble to form a mesoscale structure that can be observed as foci in microscopy imaging. The building blocks are based on proteins, namely a tetrameric protein with a binding domain A and a dimeric protein with a binding domain B. The two building blocks can assemble via the specific binding of domains A and B. Further, each building block is tagged with a specific fluorescent protein such that its location and abundance can be measured with microscopy. A more detailed description of these building blocks and their assembly can be found in [Nandi, Österle et al., 2022](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.129.128102).
 
-This repository contains raw data from microscopy for illustrative purposes. This data is first processed using propietary scripts that have been developed in the Emmanuel Levy lab. A short explanation of these scripts can be found in the section "Private Scripts Description".
+This repository contains exemplary raw data from microscopy. This data is first processed using propietary scripts that have been developed in the Emmanuel Levy lab. A short explanation of these scripts can be found in the section "Private Scripts Description".
 To only reproduce the data analysis and visualization these scripts are not necessary as processed exemplary files are contained in the "input_files" folder.
 
 ## Public Scripts Description
