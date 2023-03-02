@@ -7,7 +7,7 @@
 
 ## Project Description
 
-The code in this repository is used to analyze raw data resulting from confocal microscopy images of *S. Cerevisiae* cells. In very general terms, these cells were prepared to contain two different building blocks that can assemble to form a mesoscale structure that can be observed as foci in microscopy imaging. The building blocks are based on proteins, namely a tetrameric protein with a binding domain A and a dimeric protein with a binding domain B. The two building blocks can assemble via the specific binding of domains A and B. Further, each building block is tagged with a specific fluorescent protein such that its location and abundance can be measured with microscopy. A more detailed description of these building blocks and their assembly can be found in [Nandi, Österle et al., 2022](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.129.128102).
+The code in this repository is used to analyze raw data resulting from confocal microscopy images of *S. Cerevisiae* cells. In very general terms, these cells were prepared to contain two different building blocks that can assemble to form a mesoscale structure that can be observed as foci in microscopy imaging. The building blocks are based on proteins, namely a tetrameric protein with a binding domain A and a dimeric protein with a binding domain B. The two building blocks can assemble via the specific binding of domains A and B. Further, each building block is tagged with a specific fluorescent protein such that its location and abundance can be measured with microscopy. A more detailed description of these building blocks and their assembly can be found in [Nandi, Österle et al., 2022](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.129.128102) (PMID: 36179193).
 
 This repository contains exemplary raw data from microscopy. This data is first processed using propietary scripts that have been developed in the [Emmanuel Levy Lab](https://www.weizmann.ac.il/CSB/ELevy/home). A short explanation of these scripts can be found in the section "Private Scripts Description".
 To only reproduce the data analysis and visualization these scripts are not necessary as processed exemplary files are contained in the "input_files" folder.
@@ -19,7 +19,7 @@ Execute this script from the command line with `./process_results.R` or run `./p
 Most importantly, the script will look for the following files:
 * A file of ".nd" format that contains basic information about the set-up of the (automated) microscopy screen
 * A plate definition ("pdef") file of ".csv" format that contains information about the contents of each well on a 384-well plate
-* Several files of ".txt" format that are the result of prior cell identification and segmentation and contain the raw imaging data, including cell size, position and fluorescence intensities for the measured wavelengths of a specific screen as described in [Heidenreich et al.,(2020)](https://rdcu.be/cE9xO) PMID: 32661377
+* Several files of ".txt" format that are the result of prior cell identification and segmentation and contain the raw imaging data, including cell size, position and fluorescence intensities for the measured wavelengths of a specific screen as described in [Heidenreich et al.,(2020)](https://rdcu.be/cE9xO) (PMID: 32661377).
 
 Wile the files of ".nd" and ".txt" format result from the microscopy screen, the plate definition file has to be supplied by the user.
 
