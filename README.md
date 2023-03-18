@@ -40,9 +40,9 @@ In the uploaded version of "phase_analysis_main.R" the function plot.overlap.gfp
 
 ## Private Scripts Description
 
-### f.process.raw.data.R
+### raw_data_tools.R
 
-This combines all raw data processing based on the proprietary scripts into one function. It has four input variables: *design.file* which is a custom file created in the public module process_results.R and contains general information about the microscopy and plate set up; *min.cell.size* which is the minimum size of circular regions of interest that is to be considered as a cell, *max.cell.size* which is the equivalent to *min.cell.size* for maximum size; *brightfield.cutoff* which is a numeric constant indicating the upper threshold of brightfield intensity for cells that are kept as all cells above the threshold have a brightfield intensity that deviates too much from the average and are removed.
+This module combines the functions for raw data processing based on the proprietary scripts. It calls the functions from the other private scripts and determines the order of data cleaning steps. Further, it extracts only the data that is actually required for further analysis and visualization and returns cleaned data in a data frame. It also performs conversion of fluorescence intensity values to protein concentrations.
 
 ### MicroscopeToolBox.R
 
